@@ -35,7 +35,6 @@ public class StringRequestFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        T.showToastShort(getActivity(), "Enter StringRequest");
         View view = inflater.inflate(R.layout.fragment_string_request, container, false);
         initViews(view);
         return view;
@@ -79,10 +78,10 @@ public class StringRequestFragment extends Fragment{
         });
     }
 
-
     @Override
     public void onDestroyView() {
-        mRequestQueue.cancelAll(VOLLEY_TAG);
+        if (null != mRequestQueue)
+            mRequestQueue.cancelAll(VOLLEY_TAG);
         super.onDestroyView();
     }
 }
