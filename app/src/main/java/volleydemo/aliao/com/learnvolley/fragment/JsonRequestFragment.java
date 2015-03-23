@@ -27,6 +27,7 @@ import java.util.Map;
 import volleydemo.aliao.com.learnvolley.R;
 import volleydemo.aliao.com.learnvolley.utils.Constants;
 import volleydemo.aliao.com.learnvolley.utils.L;
+import volleydemo.aliao.com.learnvolley.utils.T;
 import volleydemo.aliao.com.learnvolley.utils.VolleySingleton;
 
 /**
@@ -103,7 +104,7 @@ public class JsonRequestFragment extends Fragment{
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                T.showToastShort(getActivity(), "请求失败,请检查网络是否正常");
             }
         });
 

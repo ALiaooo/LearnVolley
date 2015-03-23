@@ -17,5 +17,30 @@
         android:layout_height="wrap_content"
         android:text="@string/json_request"
         android:layout_below="@id/btn_main_string_request"/>
+    <Button
+        android:id="@+id/btn_main_image_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/image_request"
+        android:layout_below="@id/btn_main_json_request"/>
+    <Button
+        android:id="@+id/btn_main_image_loader_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/image_loader_request"
+        android:layout_below="@id/btn_main_image_request"/>
+    <Button
+        android:id="@+id/btn_main_network_image_loader_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/net_image_loader_request"
+        android:layout_below="@id/btn_main_image_loader_request"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/pagefailed_bg"
+        android:layout_below="@id/btn_main_network_image_loader_request"/>
+
 
 </RelativeLayout>

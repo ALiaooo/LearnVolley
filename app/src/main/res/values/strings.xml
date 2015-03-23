@@ -5,5 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="string_request">StringRequest请求</string>
     <string name="json_request">JsonRequest请求</string>
+    <string name="image_request">ImageRequest请求</string>
+    <string name="image_loader_request">Image Loader 请求</string>
+    <string name="net_image_loader_request">NetImage Loader 请求</string>
     <string name="send_request">发送请求</string>
 </resources>
