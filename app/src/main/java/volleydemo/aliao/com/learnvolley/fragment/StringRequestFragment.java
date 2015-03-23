@@ -71,7 +71,7 @@ public class StringRequestFragment extends Fragment{
                     }
                 });
 
-                stringRequest.setTag(VOLLEY_TAG);
+                stringRequest.setTag(this);
                 mRequestQueue.add(stringRequest);
 
             }
@@ -81,7 +81,7 @@ public class StringRequestFragment extends Fragment{
     @Override
     public void onDestroyView() {
         if (null != mRequestQueue)
-            mRequestQueue.cancelAll(VOLLEY_TAG);
+            mRequestQueue.cancelAll(this);
         super.onDestroyView();
     }
 }

@@ -1,0 +1,53 @@
+{
+  "returncode": 0,
+  "message": "ok",
+  "result": {
+    "fctlist": [
+      {
+        "name": "法拉利",
+        "serieslist": [
+          {
+            "id": 676,
+            "name": "California",
+            "imgurl": "http://car0.autoimg.cn/upload/2014/6/24/s_20140624120730477213.jpg",
+            "levelid": 7,
+            "levelname": "跑车",
+            "price": "308.80万"
+          },
+          {
+            "id": 889,
+            "name": "法拉利458",
+            "imgurl": "http://car0.autoimg.cn/upload/spec/5742/s_20101115174607698123.jpg",
+            "levelid": 7,
+            "levelname": "跑车",
+            "price": "388.00-448.00万"
+          },
+          {
+            "id": 2682,
+            "name": "F12berlinetta",
+            "imgurl": "http://car0.autoimg.cn/upload/2013/4/28/s_201304281710418974136.jpg",
+            "levelid": 7,
+            "levelname": "跑车",
+            "price": "530.80万"
+          },
+          {
+            "id": 2261,
+            "name": "法拉利FF",
+            "imgurl": "http://car0.autoimg.cn/upload/2014/5/7/s_201405072325573934218.jpg",
+            "levelid": 7,
+            "levelname": "跑车",
+            "price": "530.80万"
+          },
+          {
+            "id": 3016,
+            "name": "LaFerrari",
+            "imgurl": "http://car0.autoimg.cn/upload/2014/8/19/s_20140819181852565376510.jpg",
+            "levelid": 7,
+            "levelname": "跑车",
+            "price": "2250.00万"
+          }
+        ]
+      }
+    ]
+  }
+}
