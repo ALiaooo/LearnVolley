@@ -8,6 +8,7 @@ import volleydemo.aliao.com.learnvolley.fragment.ImageLoaderRequestFragment;
 import volleydemo.aliao.com.learnvolley.fragment.ImageRequestFragment;
 import volleydemo.aliao.com.learnvolley.fragment.JsonRequestFragment;
 import volleydemo.aliao.com.learnvolley.fragment.NetworkImageRequsetFragment;
+import volleydemo.aliao.com.learnvolley.fragment.PostRequestFragment;
 import volleydemo.aliao.com.learnvolley.fragment.StringRequestFragment;
 import volleydemo.aliao.com.learnvolley.utils.Constants;
 
@@ -37,13 +38,20 @@ public class RequestActivity extends FragmentActivity {
                 if (null == fragment)
                     fragment = new ImageRequestFragment();
                 break;
+
             case Constants.IMAGE_LOADER_REQUEST_INTEX:
                 if (null == fragment)
                     fragment = new ImageLoaderRequestFragment();
                 break;
+
             case Constants.NETWORK_IMAGE_LOADER_REQUEST_INTEX:
                 if (null == fragment)
                     fragment = new NetworkImageRequsetFragment();
+                break;
+
+            case Constants.POST_REQUEST_INTEX:
+                if (null == fragment)
+                    fragment = new PostRequestFragment();
                 break;
         }
 

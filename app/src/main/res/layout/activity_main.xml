@@ -35,6 +35,12 @@
         android:layout_height="wrap_content"
         android:text="@string/net_image_loader_request"
         android:layout_below="@id/btn_main_image_loader_request"/>
+    <Button
+        android:id="@+id/btn_main_post_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/post_request"
+        android:layout_below="@id/btn_main_network_image_loader_request"/>
 
 
 </RelativeLayout>
