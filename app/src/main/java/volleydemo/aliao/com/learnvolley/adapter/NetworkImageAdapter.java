@@ -24,7 +24,7 @@ public class NetworkImageAdapter extends ImageBaseAdapter {
 
     @Override
     int getItemLayout() {
-        return R.layout.griditem_image_request;
+        return R.layout.griditem_newwork_image_request;
     }
 
     @Override

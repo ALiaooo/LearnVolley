@@ -34,7 +34,7 @@ public class VolleySingleton {
         mRequestQueue = getRequestQueue();
         mImageLoader = new ImageLoader(mRequestQueue, new ImageLoader.ImageCache() {
 
-            private final LruCache<String, Bitmap> cache = new LruCache<>(20);
+            private final LruCache<String, Bitmap> cache = new LruCache<>(5*1024*1024);//5M
 
             @Override
             public Bitmap getBitmap(String url) {

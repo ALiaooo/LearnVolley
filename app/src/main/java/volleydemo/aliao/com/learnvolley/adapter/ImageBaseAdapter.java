@@ -67,7 +67,6 @@ public abstract class ImageBaseAdapter extends BaseAdapter {
 
     abstract void setImage(ImageView mImageView, String mImageUrl);
 
-
     class ViewHolder{
         private ImageView mImageView;
     }
