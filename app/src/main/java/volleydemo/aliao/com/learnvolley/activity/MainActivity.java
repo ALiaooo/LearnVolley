@@ -25,6 +25,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         findViewById(R.id.btn_main_image_loader_request).setOnClickListener(this);
         findViewById(R.id.btn_main_network_image_loader_request).setOnClickListener(this);
         findViewById(R.id.btn_main_post_request).setOnClickListener(this);
+        findViewById(R.id.btn_main_gson_request).setOnClickListener(this);
+        findViewById(R.id.btn_main_xml_request).setOnClickListener(this);
 
     }
 
@@ -50,6 +52,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
             case R.id.btn_main_post_request:
                 intent.putExtra(Constants.FRAGMENT_INDEX, Constants.POST_REQUEST_INTEX);
+                break;
+            case R.id.btn_main_gson_request:
+                intent.putExtra(Constants.FRAGMENT_INDEX, Constants.GSON_REQUEST_INTEX);
+                break;
+            case R.id.btn_main_xml_request:
+                intent.putExtra(Constants.FRAGMENT_INDEX, Constants.XML_REQUEST_INTEX);
                 break;
         }
         startActivity(intent);

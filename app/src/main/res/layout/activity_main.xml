@@ -41,6 +41,18 @@
         android:layout_height="wrap_content"
         android:text="@string/post_request"
         android:layout_below="@id/btn_main_network_image_loader_request"/>
+    <Button
+        android:id="@+id/btn_main_gson_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gson_request"
+        android:layout_below="@id/btn_main_post_request"/>
+    <Button
+        android:id="@+id/btn_main_xml_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/xml_request"
+        android:layout_below="@id/btn_main_gson_request"/>
 
 
 </RelativeLayout>

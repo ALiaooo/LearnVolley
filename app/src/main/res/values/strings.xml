@@ -9,6 +9,8 @@
     <string name="image_loader_request">Image Loader 请求</string>
     <string name="net_image_loader_request">NetImage Loader 请求</string>
     <string name="post_request">Post 请求</string>
+    <string name="gson_request">Gson 请求</string>
+    <string name="xml_request">Xml 请求</string>
     <string name="send_request">发送请求</string>
     <string name="request_url_hint">请输入请求地址</string>
     <string name="request_send">发送</string>

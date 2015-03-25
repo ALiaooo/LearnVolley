@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
+import volleydemo.aliao.com.learnvolley.fragment.GsonRequestFragment;
 import volleydemo.aliao.com.learnvolley.fragment.ImageLoaderRequestFragment;
 import volleydemo.aliao.com.learnvolley.fragment.ImageRequestFragment;
 import volleydemo.aliao.com.learnvolley.fragment.JsonRequestFragment;
 import volleydemo.aliao.com.learnvolley.fragment.NetworkImageRequsetFragment;
 import volleydemo.aliao.com.learnvolley.fragment.PostRequestFragment;
 import volleydemo.aliao.com.learnvolley.fragment.StringRequestFragment;
+import volleydemo.aliao.com.learnvolley.fragment.XmlRequestFragment;
 import volleydemo.aliao.com.learnvolley.utils.Constants;
 
 /**
@@ -53,10 +55,18 @@ public class RequestActivity extends FragmentActivity {
                 if (null == fragment)
                     fragment = new PostRequestFragment();
                 break;
+            case Constants.GSON_REQUEST_INTEX:
+                if (null == fragment)
+                    fragment = new GsonRequestFragment();
+                break;
+            case Constants.XML_REQUEST_INTEX:
+                if (null == fragment)
+                    fragment = new XmlRequestFragment();
+                break;
         }
 
         setTitle("StringRequest");
-        getSupportFragmentManager().beginTransaction().replace(android.R.id.content, fragment).commit();//android.R.id.content
+        getSupportFragmentManager().beginTransaction().replace(android.R.id.content, fragment).commit();
     }
 
 }
