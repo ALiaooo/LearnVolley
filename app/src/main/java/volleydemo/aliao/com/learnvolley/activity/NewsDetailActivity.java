@@ -41,6 +41,18 @@ public class NewsDetailActivity extends Activity{
     }
 
     private void requestDatas() {
+
+
+        /**
+         * 加载进度框：
+         * 1.swapeLayout形式显示
+         * 2.对话框的形式显示
+         * 3.整个背景中间显示加载进度圈
+         *
+         * 其中第3条可以直接结合网络异常、超时、错误、点击重新连接的显示
+         */
+
+
         GsonRequest<News> gsonRequest = new GsonRequest<News>(url+mNewsId, News.class, new Response.Listener<News>() {
             @Override
             public void onResponse(News response) {
