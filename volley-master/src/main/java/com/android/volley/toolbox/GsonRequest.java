@@ -1,15 +1,16 @@
 package com.android.volley.toolbox;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.google.gson.Gson;
 import com.android.volley.Response.Listener;
+import com.google.gson.JsonParseException;
 
 import java.io.UnsupportedEncodingException;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Map;
 
 /**
  * Created by 丽双 on 2015/3/25.
@@ -21,6 +22,8 @@ public class GsonRequest<T> extends Request<T> {
     private Gson mGson;
 
     private Class<T> mClass;
+
+    private Map<String, String> mHeader;
 
     public GsonRequest(int method, String url, Class<T> clazz, Listener<T> listener, Response.ErrorListener errorListener) {
         super(method, url, errorListener);
@@ -36,11 +39,13 @@ public class GsonRequest<T> extends Request<T> {
     @Override
     protected Response<T> parseNetworkResponse(NetworkResponse response) {
         try {
-            String jsonString = new String(response.data,
-                    HttpHeaderParser.parseCharset(response.headers));
+            String jsonString = new String(response.data,HttpHeaderParser.parseCharset(response.headers));
             return Response.success(mGson.fromJson(jsonString, mClass),
                     HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {
+            return Response.error(new ParseError(e));
+        }catch (JsonParseException e) {
+            e.printStackTrace();
             return Response.error(new ParseError(e));
         }
     }
@@ -48,5 +53,10 @@ public class GsonRequest<T> extends Request<T> {
     @Override
     protected void deliverResponse(T response) {
         mListener.onResponse(response);
+    }
+
+    @Override
+    public Map<String, String> getHeaders() throws AuthFailureError {
+        return mHeader != null ? mHeader : super.getHeaders();
     }
 }

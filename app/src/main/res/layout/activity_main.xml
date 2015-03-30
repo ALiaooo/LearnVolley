@@ -53,6 +53,12 @@
         android:layout_height="wrap_content"
         android:text="@string/xml_request"
         android:layout_below="@id/btn_main_gson_request"/>
+    <Button
+        android:id="@+id/btn_main_demo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/demo_request"
+        android:layout_below="@id/btn_main_xml_request"/>
 
 
 </RelativeLayout>

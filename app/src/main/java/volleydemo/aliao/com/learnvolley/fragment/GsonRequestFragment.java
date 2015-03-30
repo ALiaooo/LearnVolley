@@ -37,9 +37,12 @@ public class GsonRequestFragment extends Fragment {
 
     private void initViews(View view) {
 
-        GsonRequest gsonRequest = new GsonRequest(Constants.GSON_REQUEST_DEFALUT_URL, Weather.class, new Response.Listener<Weather>() {
+        //请求前加载，显示加载进度框
+
+        GsonRequest gsonRequest = new GsonRequest<Weather>(Constants.GSON_REQUEST_DEFALUT_URL, Weather.class, new Response.Listener<Weather>() {
             @Override
             public void onResponse(Weather response) {
+                //取消加载进度框
                 WeatherInfo weatherInfo = response.getWeatherInfo();
                 L.d("weatherInfo = "+weatherInfo);
                 L.d("gson request city = "+weatherInfo.getCity());
@@ -48,7 +51,7 @@ public class GsonRequestFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                //取消加载进度框
             }
         });
 

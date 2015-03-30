@@ -19,7 +19,11 @@ public class Constants {
     public static final int POST_REQUEST_INTEX = 5;
     public static final int GSON_REQUEST_INTEX = POST_REQUEST_INTEX + 1;
     public static final int XML_REQUEST_INTEX = GSON_REQUEST_INTEX + 1;
+    public static final int DEMO_REQUEST_INTEX = XML_REQUEST_INTEX + 1;
     public static final String FRAGMENT_INDEX = "requestFragment";
+
+
+    public static final String NEWS_ID = "newsId";
 
 
     public static final String[] IMAGE_URLS = new String[] {
