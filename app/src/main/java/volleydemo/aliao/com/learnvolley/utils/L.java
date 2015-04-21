@@ -4,7 +4,7 @@ import android.util.Log;
 
 /**
  * Created by ALiao on 2014/12/25.
- * desc:
+ * desc:Log打印
  */
 public class L {
 
