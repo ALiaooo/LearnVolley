@@ -1,5 +1,10 @@
 package volleydemo.aliao.com.learnvolley.net.base;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by 丽双 on 2015/4/21.
  * http://blog.csdn.net/bboyfeiyu/article/details/43015859
@@ -65,6 +70,20 @@ public abstract class Request<T> {
     private RequestListener<T> mRequestListener;
 
     private boolean isCancel;
+    /**
+     * Default encoding for POST or PUT parameters. See {@link #getParamsEncoding()}.
+     */
+    private static final String DEFAULT_PARAMS_ENCODING = "UTF-8";
+
+    /**
+     * 请求头
+     */
+    private Map<String, String> mHeaders = new HashMap<>();
+
+    /**
+     * 请求参数
+     */
+    private Map<String, String> mRequestParams = new HashMap<>();
 
     public Request(HttpMethod method, String url, RequestListener<T> listener){
         mHttpMethod = method;
@@ -110,5 +129,60 @@ public abstract class Request<T> {
 
     public String getUrl() {
         return mUrl;
+    }
+
+    public HttpMethod getHttpMethod() {
+        return mHttpMethod;
+    }
+
+    public void setHeaders(Map<String, String> mHeaders) {
+        this.mHeaders = mHeaders;
+    }
+
+    public Map<String, String> getHeaders() {
+        return mHeaders;
+    }
+
+    public Map<String, String> getParams() {
+        return mRequestParams;
+    }
+
+    protected String getParamsEncoding(){
+        return DEFAULT_PARAMS_ENCODING;
+    }
+
+
+    public byte[] getBody(){
+        Map<String, String> params = getParams();
+        if (null != params && params.size()>0){
+            return encodeParameters(params, getParamsEncoding());
+        }
+        return null;
+    }
+
+    /**
+     * Converts <code>params</code> into an application/x-www-form-urlencoded encoded string.------>不是很明白application/x-www-form-urlencoded这是干嘛
+     * -------------------------------------------------------------------------------------------->还有为什么高搞成字节来返回
+     * @param params
+     * @param encodeType
+     * @return
+     */
+    private byte[] encodeParameters(Map<String, String> params, String encodeType) {
+        StringBuilder paramsBuilder = new StringBuilder();
+        try {
+            for (Map.Entry<String, String> entry : params.entrySet()){
+                paramsBuilder.append(URLEncoder.encode(entry.getKey(), encodeType));
+                paramsBuilder.append("=");
+                paramsBuilder.append(URLEncoder.encode(entry.getValue(), encodeType));
+                paramsBuilder.append("&");
+            }
+            return paramsBuilder.toString().getBytes(encodeType);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public String getBodyContentType(){
+        return "application/x-www-form-urlencoded; charset=" + getParamsEncoding();
     }
 }

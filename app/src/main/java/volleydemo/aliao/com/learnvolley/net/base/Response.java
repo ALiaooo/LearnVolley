@@ -1,5 +1,6 @@
 package volleydemo.aliao.com.learnvolley.net.base;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.ReasonPhraseCatalog;
 import org.apache.http.StatusLine;
@@ -22,4 +23,8 @@ public class Response extends BasicHttpResponse {
         super(ver, code, reason);
     }
 
+    @Override
+    public void setEntity(HttpEntity entity) {
+        super.setEntity(entity);
+    }
 }

@@ -10,6 +10,7 @@ import com.android.volley.Response.Listener;
 import com.google.gson.JsonParseException;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -30,6 +31,7 @@ public class GsonRequest<T> extends Request<T> {
         mListener = listener;
         mGson = new Gson();
         mClass = clazz;
+
     }
 
     public GsonRequest(String url, Class<T> clazz, Listener<T> listener, Response.ErrorListener errorListener) {
@@ -57,6 +59,9 @@ public class GsonRequest<T> extends Request<T> {
 
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
+        mHeader = new HashMap<>();
+        mHeader.put("app_name","LearnVolley");
+        mHeader.put("Accept-Encoding", "gzip");
         return mHeader != null ? mHeader : super.getHeaders();
     }
 }

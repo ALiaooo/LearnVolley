@@ -1,5 +1,7 @@
 package volleydemo.aliao.com.learnvolley.net.httpstacks;
 
+import java.io.IOException;
+
 import volleydemo.aliao.com.learnvolley.net.base.Request;
 import volleydemo.aliao.com.learnvolley.net.base.Response;
 
@@ -8,5 +10,5 @@ import volleydemo.aliao.com.learnvolley.net.base.Response;
  */
 public interface HttpStack {
 
-    public Response performRequest(Request<?> request);
+    public Response performRequest(Request<?> request) throws IOException;
 }
