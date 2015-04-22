@@ -22,11 +22,40 @@ public class HttpUrlConnStack implements HttpStack {
     @Override
     public Response performRequest(Request<?> request) {
 
-        HttpURLConnection urlConnection = null;
+        /*HttpURLConnection urlConnection = null;
         //构建HttpUrlConnection
         urlConnection = createUrlConnection(request.getUrl());
         //设置headers
-        setRequestHeaders(urlConnection, request);
+        setRequestHeaders(urlConnection, request);*/
+
+        /** 使用HttpURLConnection打开连接 **/
+        HttpURLConnection urlConn = null;
+        try {
+            URL url = new URL("");
+            urlConn = (HttpURLConnection) url.openConnection();
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        /** 设置基本参数 **/
+        //设置输入和输出流
+        urlConn.setDoOutput(true);
+        urlConn.setDoInput(true);
+        //设置连接超时时间和读取超时时间
+        urlConn.setConnectTimeout(5000);
+        urlConn.setReadTimeout(5000);
+        //设置不能使用缓存
+        urlConn.setUseCaches(false);
+        /** 设置请求头 **/
+        for(String key:request.getHeaders().keySet()){
+            urlConn.addRequestProperty(key, request.getHeaders().get(key));
+        }
+        /** 设置请求参数 **/
+
+
+
 
         return null;
     }

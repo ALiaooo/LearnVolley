@@ -45,7 +45,7 @@ public class HttpClientStack implements HttpStack {
         /**
          * 添加请求头
          */
-        addHeaders(httpUriRequest, request.getHeaders());
+        setHeaders(httpUriRequest, request.getHeaders());
 
         /** 设置支持Https **/
         configHttps(request);
@@ -100,7 +100,7 @@ public class HttpClientStack implements HttpStack {
      * @param httpUriRequest
      * @param headers
      */
-    private void addHeaders(HttpUriRequest httpUriRequest, Map<String, String> headers) {
+    private void setHeaders(HttpUriRequest httpUriRequest, Map<String, String> headers) {
         for (String key:headers.keySet()){
             httpUriRequest.setHeader(key, headers.get(key));
         }
@@ -141,7 +141,7 @@ public class HttpClientStack implements HttpStack {
 
         byte[] body = request.getBody();
         if (null != null){
-            HttpEntity httpEntity = new ByteArrayEntity(body);//----------------------------------->HttpEntity太陌生了
+            HttpEntity httpEntity = new ByteArrayEntity(body);//----------------------------------->HttpEntity太陌生了，还有UrlEncodedFormEntity这个
             httpUriRequest.setEntity(httpEntity);
         }
     }
